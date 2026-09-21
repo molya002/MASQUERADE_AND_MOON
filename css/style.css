@@ -30,6 +30,7 @@ img { max-width: 100%; display: block; }
   position: absolute; z-index: 20; top: 0; left: 0; width: 100%;
   border-bottom: 1px solid rgba(255,255,255,.18); color: #fff;
 }
+.site-header { position:absolute; z-index:20; top:0; left:0; width:100%; }
 .nav-inner { max-width: 1400px; margin: auto; padding: 22px 5vw; display: flex; align-items: center; justify-content: space-between; gap: 30px; }
 .brand { font-size: 1.35rem; letter-spacing: .12em; font-weight: 700; }
 .brand span,.footer-brand span { color: var(--gold); }
@@ -119,7 +120,8 @@ blockquote { font-size:clamp(2.5rem,5vw,5rem); line-height:1.02; margin:25px 0; 
 .product-info a:hover { color:var(--burgundy); }
 
 .catalog-page { min-height:100vh; display:grid; grid-template-columns:240px minmax(0,1fr); grid-template-areas:"header header" "sidebar main" "footer footer"; }
-.catalog-page .site-nav { position:relative; grid-area:header; background:var(--night); }
+.catalog-page .site-header { position:relative; grid-area:header; }
+.catalog-page .site-nav { position:relative; background:var(--night); }
 .catalog-page main { grid-area:main; min-width:0; }
 .catalog-page .site-footer { grid-area:footer; }
 .catalog-sidebar { grid-area:sidebar; background:#211c1e; color:#fff; padding:70px 32px; }
@@ -169,8 +171,8 @@ details p { margin-top: 15px; color: var(--muted); font-size: 0.85rem; padding-r
 .about-photo { min-height:620px; background-position:center; background-size:cover; }
 .about-intro h2 { margin-bottom:30px; }
 .about-intro p:not(.eyebrow) { margin-bottom:18px; max-width:570px; } 
-.team-grid { max-width:1500px; margin:auto; display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
-.team-card { border:1px solid #3e3636; padding:35px; }
+.team-grid { max-width:1500px; margin:auto; display:flex; align-items:stretch; gap:20px; }
+.team-card { flex:1 1 0; border:1px solid #3e3636; padding:35px; }
 .avatar { width:90px; height:90px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:'Cormorant Garamond',serif; font-size:3rem; color:#fff; margin-bottom:30px; border:2px solid var(--gold); background-size:cover; background-position:center; }
 .role { color:var(--gold); font-size:.58rem; letter-spacing:.16em; font-weight:700; }
 .team-card h3 { margin:8px 0 15px; color: #fff; }
@@ -193,8 +195,8 @@ details p { margin-top: 15px; color: var(--muted); font-size: 0.85rem; padding-r
 .event-row ul { display:flex; gap:25px; list-style:none; color:var(--muted); font-size:.65rem; font-weight: 500; }
 .circle-arrow { width:50px; height:50px; border:1px solid var(--line); border-radius:50%; display:flex; align-items:center; justify-content:center; color: #111; }
 .circle-arrow:hover { background:var(--ink); color:#fff; }
-.tips-grid { max-width:1500px; margin:auto; display:grid; grid-template-columns:repeat(3,1fr); gap:50px; }
-.tips-grid > div { border-top:1px solid #514747; padding-top:20px; }
+.tips-grid { max-width:1500px; margin:auto; display:flex; align-items:stretch; gap:50px; }
+.tips-grid > div { flex:1 1 0; border-top:1px solid #514747; padding-top:20px; }
 .tips-grid span { color:var(--gold); font-size:.65rem; }
 .tips-grid h3 { margin:20px 0 12px; color: #fff; }
 .tips-grid p { color:#e5e5e5; }
@@ -219,8 +221,8 @@ details p { margin-top: 15px; color: var(--muted); font-size: 0.85rem; padding-r
 .radio-label input { width:auto; }
 .form-button { width:100%; margin-top:25px; }
 
-.faq-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:22px; margin-top:45px; }
-.faq-grid > div { padding:30px; border:1px solid var(--line); }
+.faq-grid { display:flex; align-items:stretch; gap:22px; margin-top:45px; }
+.faq-grid > div { flex:1 1 0; padding:30px; border:1px solid var(--line); }
 .faq-grid h3 { font-size:1.8rem; margin-bottom:15px; }
 .faq-grid p { font-size:.78rem; } 
 
@@ -239,7 +241,7 @@ details p { margin-top: 15px; color: var(--muted); font-size: 0.85rem; padding-r
   .menu-toggle { display:block; }
   .intro-section,.feature-split,.about-intro,.contact-layout,.checklist-section { grid-template-columns:1fr; }
   .category-grid,.product-grid { grid-template-columns:repeat(2,1fr); }
-  .steps-grid,.team-grid,.tips-grid,.faq-grid { grid-template-columns:1fr; }
+  .steps-grid,.team-grid,.tips-grid,.faq-grid { flex-direction:column; }
   .values-grid { grid-template-columns:1fr; }
   .rules-grid { grid-template-columns:1fr; }
   .feature-photo { min-height:500px; }
